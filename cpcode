@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <cstdlib>
+#include <time.h>
+
+
+float cash_in = 0, payout = 0;
+
+void introPage()
+{
+	system("CLS");
+	printf("=====================================================================================================================\n");
+	printf("                                 Welcome to Resorts World Sentosa Casino Digital Hub!\n");
+	printf("=====================================================================================================================\n");
+}
+void blackjackRules()
+{
+	introPage();
+	printf("The rules to Blackjack are as follows:");
+	printf("\nYou will first start to draw a card.");
+	printf("\nEach card will have different values. Numerical cards keep their numerical values and royal cards have a numerical value of 10.");
+	printf("\nIf you happen to draw an ace, you have the choice to have the numerical value of the card to be either 1 or 10.");
+	printf("\nIn this version of Blackjack, you are allowed to draw only a total of 3 cards, after which you have to stop drawing. You are given the choice whether to draw or not.");
+	printf("\nWhen you have drawn your desired number of cards, the total numerical value of all the cards will be calculated.");
+	printf("\nIf the total value exceeds 21, you automatically lose.");
+	printf("\nIf the total value is less than 18, you also automatically lose.");
+	printf("\nIf the total value is more than 18 but less than 21, you win.");
+	printf("\nYour payout will be equal to 10x of the amount you have betted.");
+	printf("\n\nPress enter to continue.");
+	getchar();
+}
+
+void rouletteRules()
+{
+	introPage();
+	printf("The rules of Roulette are as follows:");
+	printf("\nYou will first choose one out of 9 different bets available. The payout will be determined accordingly.");
+	printf("\nThe ball will then fall on a number. If the number matches the number(s) you have betted on, you automatically win.");
+	printf("\n\nPress enter to continue.");
+	getchar();
+}
+
+void blackjack()
+ {
+	int bj_value = 0, bj_rand = 0, royal_drawn = 0, bj_total = 0;
+	char bj_royal[] = { 'J', 'K', 'Q', 'A' };
+	introPage();
+	printf("You have chosen to play Blackjack!");
+	printf("\nThe amount you have betted is $%.2f\n", cash_in);
+	getchar();
+
+	printf("\n\nYou will now draw a card.");
+	srand((unsigned int)time(NULL));
+	bj_rand = rand() % 1;
+	if (bj_rand == 1) // drawn royal
+	{
+		srand((unsigned int)time(NULL));
+		royal_drawn = bj_royal[rand() % 3];
+		if (royal_drawn == 'J')
+		{
+			printf("\nYou have drawn a card. That card is a Jack.");
+			printf("\nThe value of the card is 10.");
+			bj_total = bj_total + 10;
+			printf("\n\nThe current total value of the cards is %d", bj_total);
+			getchar();
+		}
+	}
+	else if (bj_rand == 0)
+	{
+
+	}
+
+	if
+}
+
+void roulette()
+{
+
+}
+
+void main()
+{
+	introPage();
+	
+	char name[500], game = 0;
+
+	printf("Enter your name: ");
+	scanf("%s", &name);
+	getchar();
+
+	while (cash_in < 200)
+	{
+	system("CLS");
+	introPage();
+
+
+		printf("Hello %s!\n", name);
+		printf("Enter the amount of money you would like to bet(minimum $200): $");
+		scanf("%f", &cash_in);
+		getchar();
+
+			if (cash_in < 200)
+			{
+				printf("Money betted is too low. Bet again.");
+				getchar();
+			}
+	}
+
+	while (game != 'r'&&game != 'R'&&game != 'b'&&game != 'B')
+	{
+		printf("\nChoose the game you would like to play(b for blackjack and r for roulette): ");
+		scanf("%c", &game);
+		getchar();
+
+		if (game == 'r' || game == 'R')
+		{
+			roulette();
+		}
+		else if (game == 'b' || game == 'B')
+		{
+			blackjack();
+		}
+		else
+		{
+			printf("Your input is invalid. Please re-enter your game choice.");
+			getchar();
+		}
+	}
+	getchar();
+
+
+}
